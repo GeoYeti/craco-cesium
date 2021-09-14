@@ -129,7 +129,8 @@ If the option is omiited, the default options is used:
 CracoCesiumPlugin({
   loadPartially: false,
   loadCSSinHTML: true,
-  cesiumPath: "cesium"
+  cesiumPath: "cesium",
+  cesiumSource: "node_modules/cesium/Source"
 });
 ```
 
@@ -162,3 +163,7 @@ import "cesium/Build/CesiumUnminified/Widgets/widgets.css";
 ### `cesiumPath`
 
 Directory path destination to copy Cesium files.
+
+### `cesiumSource`
+
+node_modules directory path of Cesium source files.

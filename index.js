@@ -3,6 +3,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const HtmlWebpackTagsPlugin = require("html-webpack-tags-plugin");
 
 let pnp;
@@ -50,6 +51,8 @@ module.exports = options => ({
       cesiumPath: "cesium",
       ...options
     };
+
+    if (options && "cesiumSource" in options) cesiumSource=options.cesiumSource;
 
     const prod = env === "production";
 
@@ -147,6 +150,7 @@ module.exports = options => ({
             to: cesiumPath
           }
         ]),
+        new HtmlWebpackPlugin(),
         new HtmlWebpackTagsPlugin({
           append: false,
           tags: [
