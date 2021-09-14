@@ -140,6 +140,8 @@ module.exports = options => ({
     } else {
       // https://resium.darwineducation.com/installation1
 
+      webpackConfig.plugins[0] = new HtmlWebpackPlugin(webpackConfig.plugins[0].options);
+
       webpackConfig.plugins.push(
         new CopyWebpackPlugin([
           {
@@ -150,7 +152,6 @@ module.exports = options => ({
             to: cesiumPath
           }
         ]),
-        new HtmlWebpackPlugin(),
         new HtmlWebpackTagsPlugin({
           append: false,
           tags: [
